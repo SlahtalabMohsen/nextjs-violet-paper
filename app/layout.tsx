@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "./(ui)/SiteHeader";
-import ThemeScript from "./(ui)/ThemeScript";
-import MobileNav from "./(ui)/MobileNav";
+import { LangProvider } from "./ui/LangContext";
+import SiteHeader from "./ui/SiteHeader";
+import ThemeScript from "./ui/ThemeScript";
+import MobileNav from "./ui/MobileNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}> 
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <div className="min-h-screen">
-          <SiteHeader />
-          {children}
-          <MobileNav />
+          <LangProvider>
+            <SiteHeader />
+            {children}
+            <MobileNav />
+          </LangProvider>
         </div>
         <ThemeScript />
       </body>

@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id")
+  username  String   @unique
+  avatarUrl String?
+  posts     Post[]
+  comments  Comment[]
+  likes     Like[]
+  followers String[] // Array of user IDs
+  following String[] // Array of user IDs
+}
+
+model Post {
+  id        String   @id @default(auto()) @map("_id")
+  title     String
+  content   String
+  headerImage String?
+  summary   String
+  createdAt DateTime @default(now())
+  userId    String
+  comments  Comment[]
+  likes     Like[]
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id")
+  content   String
+  createdAt DateTime @default(now())
+  userId    String
+  postId    String
+}
+
+model Like {
+  id        String   @id @default(auto()) @map("_id")
+  userId    String
+  postId    String
+}
+
+DATABASE_URL="mongodb://localhost:27017/violetpaper"

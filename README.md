@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Violet Paper
+
+> A futuristic, glassmorphic microblog built with Next.js, Tailwind CSS, and animated backgrounds. Share your thoughts, stories, and creativity in a beautiful, modern UI.
+
+## Features
+
+- 🟣 Glassmorphism and animated gradient backgrounds
+- 🌗 Light/Dark theme with smooth transitions
+- 📝 Create, view, and browse posts and stories
+- 🔍 Search box with transparent design
+- 📱 Mobile-first, app-like UX
+- 👤 User authentication and profile pages
+- 🏷️ Trending topics and user stats
+- ❤️ Like, 💬 Comment, and 👥 Follow functionality
+- Header images for posts
+- Modern navigation and responsive layout
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App directory)
+- [Tailwind CSS](https://tailwindcss.com/) for all styling
+- Custom CSS for glassmorphism and theme variables
+- React hooks for state and effects
+- API routes for auth, posts, profile, activity
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — Main app directory (pages, API routes, UI components)
+- `app/ui/` — UI components (AuthPanel, SiteHeader, MobileNav, etc.)
+- `app/globals.css` — Global styles, theme variables, glassmorphism
+- `public/` — Static assets (SVGs, icons)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Edit `app/page.tsx` for the main feed
+- Edit `app/ui/` components for UI changes
+- Update theme variables and glass styles in `app/globals.css`
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy easily on [Vercel](https://vercel.com/) or any platform supporting Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+Made with 💜 by Slahtalab Mohsen

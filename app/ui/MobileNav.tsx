@@ -16,8 +16,16 @@ export default function MobileNav() {
       <ul className="glass rounded-full px-3 py-2 flex items-center gap-2">
         {items.map((it) => (
           <li key={it.href}>
-            <Link href={it.href} className={`px-3 py-2 rounded-full ${pathname === it.href ? "bg-white/80" : ""}`} aria-label={it.label}>
-              <span className="text-xl" title={it.label}>{it.icon}</span>
+            <Link
+              href={it.href}
+              className={`px-3 py-2 rounded-full ${
+                pathname === it.href ? "active-nav" : ""
+              }`}
+              aria-label={it.label}
+            >
+              <span className="text-xl" title={it.label}>
+                {it.icon}
+              </span>
             </Link>
           </li>
         ))}
@@ -25,5 +33,3 @@ export default function MobileNav() {
     </nav>
   );
 }
-
-

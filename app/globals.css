@@ -1,3 +1,41 @@
+/* Harmonious glassy button for all themes */
+.glassy-btn {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--accent-1);
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  backdrop-filter: blur(8px);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+[data-theme="dark"] .glassy-btn {
+  background: rgba(40, 10, 60, 0.38);
+  color: #bbff00;
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.18);
+}
+
+.glassy-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  color: #340145;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.18);
+}
+
+[data-theme="dark"] .glassy-btn:hover {
+  background: rgba(124, 58, 237, 0.22);
+  color: #fff;
+}
+/* Active nav item styling for both themes */
+.active-nav {
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--accent-1) !important;
+}
+
+[data-theme="dark"] .active-nav {
+  background: rgba(124, 58, 237, 0.25);
+  color: #bbff00 !important;
+}
 @import "tailwindcss";
 
 :root {
@@ -12,35 +50,98 @@
   --foreground: #f8f4ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+body {
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f6f3ff 0%, #e0c3fc 50%, #bbff00 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-body {
-  background: radial-gradient(1200px 800px at 20% 80%, rgba(180, 58, 237, 0.25) 0%, rgba(207, 58, 237, 0.05) 40%, transparent 70%),
-              radial-gradient(1000px 800px at 95% 5%, rgba(221, 71, 211, 0.493) 0%, rgba(253, 71, 171, 0.08) 45%, transparent 70%),
-              linear-gradient(135deg, #f6f3ff 0%, #fffdf2 100%);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 [data-theme="dark"] body {
-  background: radial-gradient(1200px 800px at 20% 80%, rgba(195, 58, 237, 0.35) 0%, rgba(216, 58, 237, 0.1) 40%, transparent 70%),
-              radial-gradient(1000px 800px at 95% 5%, rgba(144, 6, 121, 0.5) 0%, rgba(253, 71, 86, 0.12) 45%, transparent 70%),
-              linear-gradient(135deg, #340145 0%, #6b0280 100%);
+  background: linear-gradient(120deg, #340145 0%, #6b0280 50%, #7c3aed 100%);
+  background-size: 200% 200%;
+  animation: gradientMoveDark 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes gradientMoveDark {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .glass {
-  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.25));
+  background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 6px 30px rgba(31, 27, 45, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  color: var(--foreground);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(40, 10, 60, 0.38);
+  color: var(--foreground);
+  border: 1px solid rgba(124, 58, 237, 0.22);
 }
 
 .ring-accent {
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+  box-shadow: 0 0 0 3px var(--accent-1);
+}
+input,
+textarea {
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid #d1c4e9;
+  transition: background 0.2s, color 0.2s;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background: #1a1333;
+  color: #f8f4ff;
+  border: 1px solid #4b2e6a;
+}
+
+button {
+  background: var(--accent-1);
+  color: var(--foreground);
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+[data-theme="dark"] button {
+  background: #7c3aed;
+  color: #f8f4ff;
+}
+
+.btn-accent2 {
+  background: var(--accent-2) !important;
+  color: var(--foreground) !important;
+}
+
+[data-theme="dark"] .btn-accent2 {
+  background: #bbff00 !important;
+  color: #1a1333 !important;
 }
 
 /* Simple violet petal accents */
@@ -53,7 +154,11 @@ body {
   position: absolute;
   width: 90px;
   height: 90px;
-  background: radial-gradient(circle at 30% 30%, rgba(124,58,237,0.6), rgba(124,58,237,0.05) 60%);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(124, 58, 237, 0.6),
+    rgba(124, 58, 237, 0.05) 60%
+  );
   filter: blur(6px);
   border-radius: 100% 60% 100% 60% / 60% 100% 60% 100%;
   transform: rotate(25deg);
