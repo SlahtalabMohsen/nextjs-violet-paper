@@ -26,7 +26,16 @@ export default function PostPage({
   params: Promise<{ id: string }>;
 }) {
   const unwrappedParams = React.use(params);
-  const [post, setPost] = useState<any | null>(null);
+  interface Post {
+    id: string;
+    userId: string;
+    title: string;
+    content: string;
+    headerImage?: string;
+    summary: string;
+    createdAt: number;
+  }
+  const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const { lang } = useLang();
   const [userId, setUserId] = useState<string | null>(null);

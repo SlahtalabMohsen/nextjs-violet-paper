@@ -9,6 +9,17 @@ export default function AuthPanel() {
     posts?: any[];
     followers?: any[];
   }
+  interface User {
+    avatarUrl?: string;
+    username?: string;
+    posts?: Post[];
+    followers?: string[];
+  }
+  interface Post {
+    id: string;
+    title: string;
+    summary: string;
+  }
   const [user, setUser] = useState<User | null>(null);
   const [username, setUsername] = useState("");
 

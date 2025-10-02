@@ -10,7 +10,35 @@ export default function ProfilePage({
   params: Promise<{ username: string }>;
 }) {
   const unwrappedParams = React.use(params);
-  const [data, setData] = useState<any | null>(null);
+  interface User {
+    id: string;
+    username: string;
+    followers: string[];
+  }
+  interface Post {
+    id: string;
+    userId: string;
+    title: string;
+    content: string;
+    headerImage?: string;
+    summary: string;
+    createdAt: number;
+  }
+  interface Activity {
+    id: string;
+    type: string;
+    actorId: string;
+    targetId?: string;
+    createdAt: number;
+    meta?: { title?: string };
+  }
+  interface ProfileData {
+    user: User;
+    posts: Post[];
+    followers: number;
+    activities: Activity[];
+  }
+  const [data, setData] = useState<ProfileData | null>(null);
   const [loading, setLoading] = useState(true);
   const { lang } = useLang();
   const [hydrated, setHydrated] = useState(false);

@@ -11,7 +11,7 @@ export type Activity = {
   actorId: string;
   targetId?: string; // post id or user id
   createdAt: number;
-  meta?: Record<string, any>;
+  meta?: { title?: string };
 };
 
 export type Post = {
@@ -31,7 +31,7 @@ type Store = {
   sessions: Record<string, string>; // token -> userId
 };
 
-const g = globalThis as any;
+const g = globalThis as typeof globalThis;
 if (!g.__violet_store) {
   const demoUser: User = {
     id: "u_demo",
@@ -48,7 +48,7 @@ if (!g.__violet_store) {
 }
 
 export function getStore(): Store {
-  return (globalThis as any).__violet_store as Store;
+  return (globalThis as typeof globalThis).__violet_store as Store;
 }
 
 export function generateId(prefix: string) {

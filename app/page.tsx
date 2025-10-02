@@ -6,7 +6,11 @@ import AuthPanel from "./ui/AuthPanel";
 import { useLang } from "./ui/LangContext";
 
 export default function Home() {
-  type Post = { id: string; title: string; summary: string };
+  interface Post {
+    id: string;
+    title: string;
+    summary: string;
+  }
   const [posts, setPosts] = useState<Post[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const { lang } = useLang();
