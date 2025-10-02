@@ -1,3 +1,6 @@
+declare global {
+  var __violet_store: Store | undefined;
+}
 export type User = {
   id: string;
   username: string;
@@ -31,24 +34,23 @@ type Store = {
   sessions: Record<string, string>; // token -> userId
 };
 
-const g = globalThis as typeof globalThis;
-if (!g.__violet_store) {
+if (!globalThis.__violet_store) {
   const demoUser: User = {
     id: "u_demo",
     username: "guest",
     avatarUrl: undefined,
     followers: [],
   };
-  g.__violet_store = {
+  globalThis.__violet_store = {
     users: [demoUser],
     posts: [],
     activities: [],
     sessions: {},
-  } as Store;
+  };
 }
 
 export function getStore(): Store {
-  return (globalThis as typeof globalThis).__violet_store as Store;
+  return globalThis.__violet_store as Store;
 }
 
 export function generateId(prefix: string) {

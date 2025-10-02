@@ -6,8 +6,8 @@ export default function AuthPanel() {
   interface User {
     avatarUrl?: string;
     username?: string;
-    posts?: any[];
-    followers?: any[];
+    posts?: Post[];
+    followers?: string[];
   }
   interface User {
     avatarUrl?: string;
