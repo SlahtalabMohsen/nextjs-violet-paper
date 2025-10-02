@@ -33,7 +33,12 @@ type Store = {
 
 const g = globalThis as any;
 if (!g.__violet_store) {
-  const demoUser: User = { id: "u_demo", username: "guest", avatarUrl: undefined, followers: [] };
+  const demoUser: User = {
+    id: "u_demo",
+    username: "guest",
+    avatarUrl: undefined,
+    followers: [],
+  };
   g.__violet_store = {
     users: [demoUser],
     posts: [],
@@ -49,5 +54,3 @@ export function getStore(): Store {
 export function generateId(prefix: string) {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}`;
 }
-
-

@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function AuthPanel() {
-  const [user, setUser] = useState<any>(null);
+  interface User {
+    avatarUrl?: string;
+    username?: string;
+    posts?: any[];
+    followers?: any[];
+  }
+  const [user, setUser] = useState<User | null>(null);
   const [username, setUsername] = useState("");
 
   async function refresh() {

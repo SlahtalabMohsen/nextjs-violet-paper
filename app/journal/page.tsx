@@ -7,7 +7,7 @@ type Activity = {
   actorId: string;
   targetId?: string;
   createdAt: number;
-  meta?: any;
+  meta?: { title?: string };
 };
 
 export default function JournalPage() {

@@ -17,7 +17,24 @@ export default function Home() {
       .then((data) => setPosts(data.posts));
   }, []);
 
-  const t: Record<"en" | "fa", any> = {
+  const t: Record<
+    "en" | "fa",
+    {
+      title: string;
+      subtitle: string;
+      write: string;
+      login: string;
+      home: string;
+      journal: string;
+      stories: string;
+      pen: string;
+      about: string;
+      search: string;
+      like: string;
+      comment: string;
+      noPosts: string;
+    }
+  > = {
     en: {
       title: "Violet Paper",
       subtitle:
